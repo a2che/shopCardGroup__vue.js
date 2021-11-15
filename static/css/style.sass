@@ -134,6 +134,14 @@ section.main header
 		margin-bottom: 2px
 		+font(Source Sans Pro,normal,normal,10px,13px)
 		color: #49485E
+		&::after  
+				content: '*'
+				color: red
+				font-size: 16px
+		&.disabled
+			&::after  
+				content: none
+				
 	input
 		@extend %input-style	
 	textarea
@@ -215,6 +223,7 @@ section.main header
 		margin-top: 14px
 		margin-bottom: 16px
 		color: $primary-color
+		
 	&__text
 		+font(Source Sans Pro,normal,normal,15px,20px)
 		color: $primary-color

@@ -179,6 +179,14 @@ section.main header {
   line-height: 13px;
   color: #49485E;
 }
+.add__prod label::after {
+  content: "*";
+  color: red;
+  font-size: 16px;
+}
+.add__prod label.disabled::after {
+  content: none;
+}
 .add__prod textarea {
   resize: none;
   height: 108px;

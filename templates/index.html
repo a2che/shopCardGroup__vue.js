@@ -3,22 +3,74 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+	<title>Frontend-test</title>
 </head>
 <body>
 
 
 
 
+<section class="main">
+	<header>
+		<h1>Добавление товара</h1>
+		<select name="main__header__select" id="main__header__select">
+			<option value="default">По умолчанию</option>
+			<option value="min">По цене min</option>
+			<option value="max">По цене max</option>
+			<option value="name">По наименованию</option>
+		</select>
+	</header>
+	<div class="wrapper">
+		<form class="add__prod" action="add__product">
+			<label for="add__prod__name">Наименование товара</label>
+			<input type="text" id="add__prod__name" placeholder="Введите наименование товара">
 
+			<label for="add__prod__description">Описание товара</label>
+			<input type="text" id="add__prod__description" placeholder="Введите описание товара">
 
-	<div class="card">
-		<img class="card__image" src="../static/images/cardBg.png" alt="">
-		<img class="card__delete"src="../static/images/cardDelete.png" alt="">
-		<p class="card__title">Наименование товара</p>
-		<p class="card__text">Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк</p>
-		<p class="card__price">10 000 руб</p>  <!--!!!!!!!!!!!!!! -->
+			<label for="add__prod__image">Ссылка на изображение товара</label>
+			<input type="text" id="add__prod__image" placeholder="Введите ссылку">
+
+			<label for="add__prod__price">Цена товара</label>
+			<input type="text" id="add__prod__price" placeholder="Введите цену">
+			<button class="add__prod__button">Добавить товар</button>
+		</form>
+		<div class="card__group">
+			<div class="card">
+				<img class="card__image" src="../static/images/cardBg.png" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<p class="card__title">Наименование товара</p>
+				<p class="card__text">Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк</p>
+				<p class="card__price">10 000 руб</p>  <!--!!!!!!!!!!!!!! -->
+			</div>
+			<div class="card">
+				<img class="card__image" src="../static/images/cardBg.png" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<p class="card__title">Наименование товара</p>
+				<p class="card__text">Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк</p>
+				<p class="card__price">10 000 руб</p>  <!--!!!!!!!!!!!!!! -->
+			</div>
+			<div class="card">
+				<img class="card__image" src="../static/images/cardBg.png" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<p class="card__title">Наименование товара</p>
+				<p class="card__text">Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк</p>
+				<p class="card__price">10 000 руб</p>  <!--!!!!!!!!!!!!!! -->
+			</div>
+			<div class="card">
+				<img class="card__image" src="../static/images/cardBg.png" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<p class="card__title">Наименование товара</p>
+				<p class="card__text">Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк</p>
+				<p class="card__price">10 000 руб</p>  <!--!!!!!!!!!!!!!! -->
+			</div>
+		</div>
 	</div>
+	
+</section>
+	
+	
 	
 </body>
 </html>

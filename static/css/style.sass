@@ -1,0 +1,103 @@
+@import reset
+
+
+=font($style,$weight,$size,$line-height)
+	font-family: Source Sans Pro, sans-serif
+	font-style: $style
+	font-weight: $weight
+	font-size: $size
+	line-height: $line-height
+  
+
+
+$font:    Source Sans Pro, sans-serif
+$primary-color: #3F3F3F
+$primary-shadow : 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02)
+
+
+section.main
+	padding: 0 32px
+	// padding-left: calc(50% - 688px)
+	// padding-right: calc(50% - 688px)
+section.main header  
+	display: flex  
+	justify-content: space-between
+
+.wrapper
+	display: flex 
+	justify-content: space-between
+
+
+.add__prod
+	width: 100%
+	max-width: 332px
+	background: #FFFEFB
+	box-shadow: $primary-shadow
+	border-radius: 4px
+	height: 100%
+	padding: 24px
+	margin-right: 16px
+	label 
+		display: block
+		margin-bottom: 4px
+		+font(normal,normal,10px,13px)
+		color: #49485E
+	input
+		padding: 11px 0px 10px 16px
+		margin-bottom: 16px
+		width: 100%
+		box-sizing: border-box
+		background: #FFFEFB
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+		border-radius: 4px
+		border: none
+		&::placeholder
+			font-family: Source Sans Pro
+			font-style: normal
+			font-weight: normal
+			font-size: 12px
+			line-height: 15px
+
+			color: #B4B4B4
+
+	&__name
+	&__description
+	&__image
+	&__price
+	&__button
+
+
+
+
+
+
+
+
+
+
+.card
+	background: #FFFEFB
+	box-shadow: $primary-shadow
+	border-radius: 4px
+	max-width: 332px
+	width: 100%
+	&__group
+		display: flex
+		justify-content: flex-start
+		grid-gap: 16px
+		flex-wrap: wrap
+	&__image
+
+	&__delete
+
+	&__title
+
+	&__text
+
+	&__price
+
+
+
+
+
+

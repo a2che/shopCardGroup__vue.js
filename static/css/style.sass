@@ -1,71 +1,175 @@
 @import reset
 
 
-=font($style,$weight,$size,$line-height)
-	font-family: Source Sans Pro, sans-serif
+=font($family,$style,$weight,$size,$line-height)
+	font-family: $family, sans-serif
 	font-style: $style
 	font-weight: $weight
 	font-size: $size
 	line-height: $line-height
-  
 
 
-$font:    Source Sans Pro, sans-serif
+$font:		Source Sans Pro, sans-serif
 $primary-color: #3F3F3F
-$primary-shadow : 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02)
+$primary-shadow : 0px 10px 40px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02)
+$secondary-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
+$transition-speed: 0.2s
+
+
+%input-style
+	padding: 11px 0px 10px 16px
+	margin-bottom: 16px
+	width: 100%
+	box-sizing: border-box
+	background: #FFFEFB
+	box-shadow: $secondary-shadow
+	border-radius: 4px
+	border: none
+	transition: $transition-speed
+	+font(Source Sans Pro,normal,normal,12px,15px)
+	color: $primary-color
+	&:focus
+		outline: none
+		box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06), 0px 8px 10px rgba(0, 0, 0, 0.04)
+	&::placeholder
+		font-family: Source Sans Pro
+		font-style: normal
+		font-weight: normal
+		font-size: 12px
+		line-height: 15px
+		color: #B4B4B4	
+
+
+body
+	background: rgba(255, 254, 251, 0.8)
+h1  
+	font-size: 29px
+
+
+
+
+
 
 
 section.main
 	padding: 0 32px
 	// padding-left: calc(50% - 688px)
 	// padding-right: calc(50% - 688px)
-section.main header  
-	display: flex  
+section.main header	
+	display: flex	
+	margin-top: 8px
 	justify-content: space-between
+	align-items: center
+	margin-top: 29px
+	margin-bottom: 18px
+
+
+
+#main__header__select
+	position: relative
+	background: #FFFEFB
+	border-radius: 4px
+	display: flex
+	align-items: center
+	select  
+		border: none
+		padding: 13px 13px 11px 13px
+		height: 36px
+		box-shadow: $secondary-shadow
+		+font(Source Sans Pro,normal,normal,9px,15px)
+		letter-spacing: 1px
+		color: #B4B4B4
+		appearance: none
+		border-radius: 4px
+		cursor: pointer
+		option  
+			width: 200px
+		&:focus
+			outline: none
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		width: 10px
+		height: 8px
+		background: url('../images/arrD.png') no-repeat right center
+		background-size: contain
+		right: 14px
+		top: 17px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .wrapper
 	display: flex 
 	justify-content: space-between
-
-
 .add__prod
 	width: 100%
-	max-width: 332px
+	max-width: 288px
+	position: absolute
 	background: #FFFEFB
 	box-shadow: $primary-shadow
 	border-radius: 4px
-	height: 100%
+
 	padding: 24px
-	margin-right: 16px
+	margin-right: 14px
 	label 
 		display: block
-		margin-bottom: 4px
-		+font(normal,normal,10px,13px)
+		margin-bottom: 2px
+		+font(Source Sans Pro,normal,normal,10px,13px)
 		color: #49485E
 	input
-		padding: 11px 0px 10px 16px
-		margin-bottom: 16px
-		width: 100%
-		box-sizing: border-box
-		background: #FFFEFB
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
-		border-radius: 4px
-		border: none
-		&::placeholder
-			font-family: Source Sans Pro
-			font-style: normal
-			font-weight: normal
-			font-size: 12px
-			line-height: 15px
+		@extend %input-style	
+	textarea
+		resize: none
+		height: 108px
+		padding-right: 16px
+		@extend %input-style
+		&::-webkit-scrollbar
+			height: 12px
+			width: 3px
+		&::-webkit-scrollbar-thumb
+			background-color: #c4c4c4
+			border-radius: 5px
 
-			color: #B4B4B4
-
-	&__name
-	&__description
-	&__image
-	&__price
+	// &__name
+	// &__description
+	// &__image
+	// &__price
 	&__button
-
+		margin-top: 8px
+		background: #EEEEEE
+		border-radius: 10px
+		width: 100%
+		padding: 10px 0 10px 0
+		border: none
+		+font(Inter,normal,600,12px,15px)
+		color: #B4B4B4
+		cursor: pointer
+		transition: $transition-speed
+		&:hover	
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.01), 0px 8px 10px rgba(0, 0, 0, 0.02)
+			background-color: #DEDEDE
+			color: #A6A6A6
+		&:focus
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.01), 0px 8px 10px rgba(0, 0, 0, 0.02)
+			background-color: #D0D0D0
 
 
 
@@ -81,22 +185,45 @@ section.main header
 	border-radius: 4px
 	max-width: 332px
 	width: 100%
+	position: relative
+	transition: $transition-speed
+	cursor: pointer
+	&:hover
+		transform: scale(1.03)
+		box-shadow: $primary-shadow
+
+
 	&__group
 		display: flex
 		justify-content: flex-start
-		grid-gap: 16px
+		grid-gap: 14px
 		flex-wrap: wrap
+		margin-left: 347px
 	&__image
-
+		width: 100%
 	&__delete
-
+		position: absolute
+		top: -10px
+		right: -11px
+		display: none
+		&.active
+			display: block
+	&__info
+		padding: 0px 16px 0px 13px
 	&__title
-
+		+font(Source Sans Pro,normal,600,18px,25px)
+		margin-top: 14px
+		margin-bottom: 16px
+		color: $primary-color
 	&__text
-
+		+font(Source Sans Pro,normal,normal,15px,20px)
+		color: $primary-color
+		margin-bottom: 32px
+		
 	&__price
-
-
+		+font(Source Sans Pro,normal,600,21px,30px)
+		color: $primary-color
+		margin-bottom: 24px
 
 
 

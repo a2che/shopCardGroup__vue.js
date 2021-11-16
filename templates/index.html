@@ -29,23 +29,23 @@
 		
 	</header>
 	<div class="wrapper">
-		<form class="add__prod" > <!-- action="add__product" -->
+		<form class="add__prod" >
+			<p class="add__prod__label" :class="{ 'disabled': inpTitle.length > 0 }"  >Наименование товара</p>
+			<input class="add__prod__input" type="text" id="add__prod__name" placeholder="Введите наименование товара" v-model="inpTitle" >
+			<p class="errorText">Поле является обязательным</p>
 
+			<p class="add__prod__label disabled" >Описание товара</p>
+			<textarea class="add__prod__input"  id="add__prod__description" placeholder="Введите описание товара" ></textarea>
+			<p class="errorText">Поле является обязательным</p>
 
+			<p class="add__prod__label" :class="{ 'disabled': inpLink.length > 0 }"  >Ссылка на изображение товара</p>
+			<input class="add__prod__input" type="text" id="add__prod__image" placeholder="Введите ссылку" v-model="inpLink">
+			<p class="errorText">Поле является обязательным</p>
 
-
-			<label for="add__prod__name" :class="{ 'disabled': inpTitle.length > 0 }"  >Наименование товара</label>
-			<input type="text" id="add__prod__name" placeholder="Введите наименование товара" v-model="inpTitle" >
-
-			<label class="disabled"  for="add__prod__description">Описание товара</label>
-			<textarea id="add__prod__description" placeholder="Введите описание товара" ></textarea>
-
-			<label for="add__prod__image" :class="{ 'disabled': inpLink.length > 0 }"  >Ссылка на изображение товара</label>
-			<input type="text" id="add__prod__image" placeholder="Введите ссылку" v-model="inpLink">
-
-			<label for="add__prod__price" :class="{ 'disabled': inpPrice.length > 0 }"  >Цена товара</label>
-			<input type="text" id="add__prod__price" placeholder="Введите цену" v-model="inpPrice">
-			<button class="add__prod__button">Добавить товар</button>
+			<p class="add__prod__label" :class="{ 'disabled': inpPrice.length > 0 }"  >Цена товара</p>
+			<input class="add__prod__input" type="text" id="add__prod__price" placeholder="Введите цену" v-model="inpPrice">
+			<p class="errorText">Поле является обязательным</p>
+			<button type="button" class="add__prod__button " :class="{ 'active': inpLink.length > 0 && inpTitle.length > 0 && inpPrice.length > 0}">Добавить товар</button>
 		</form>
 
 
@@ -68,9 +68,118 @@
 				<div class="card__info">
 					<p class="card__title">{{title}}</p>
 					<p class="card__text">{{text}}</p>
-					<p class="card__price">{{price}} руб</p>  <!--!!!!!!!!!!!!!! -->
+					<p class="card__price">{{price}} руб</p> 
 				</div>
 			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete "src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image" :src="image" alt="">
+				<img class="card__delete"src="../static/images/cardDelete.png" alt="">
+				<div class="card__info">
+					<p class="card__title">{{title}}</p>
+					<p class="card__text">{{text}}</p>
+					<p class="card__price">{{price}} руб</p> 
+				</div>
+			</div>
+
 		</div>
 
 
@@ -95,6 +204,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="../static/js/main.js"></script>
 <script src="../static/js/navAnim.js"></script>
+<script src="../static/js/buttonActivate.js"></script>
 
 </body>
 </html>

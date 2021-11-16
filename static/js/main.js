@@ -2,9 +2,11 @@ new Vue ({
 	el: '.add__prod',
 	data: {
 		disabled: 'disabled',
+		active: 'active',
 		inpTitle: '',
 		inpLink: '',
 		inpPrice: ''
+
 	}
 });
 new Vue ({
@@ -17,3 +19,5 @@ new Vue ({
 		price: '10 000'
 	}
 });
+
+

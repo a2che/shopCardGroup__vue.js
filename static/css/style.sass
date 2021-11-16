@@ -1,13 +1,5 @@
 @import reset
-
-
-=font($family,$style,$weight,$size,$line-height)
-	font-family: $family, sans-serif
-	font-style: $style
-	font-weight: $weight
-	font-size: $size
-	line-height: $line-height
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Source+Sans+Pro:wght@400;600&display=swap')
 
 $font:		Source Sans Pro, sans-serif
 $primary-color: #3F3F3F
@@ -16,14 +8,35 @@ $secondary-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1)
 $transition-speed: 0.2s
 
 
+=font($family,$style,$weight,$size,$line-height)
+	font-family: $family, sans-serif
+	font-style: $style
+	font-weight: $weight
+	font-size: $size
+	line-height: $line-height
+=flexSB()
+	display: flex
+	justify-content: space-between
+	align-items: center
+	flex-wrap: wrap 
+	flex-direction: row
+=flexC()
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-wrap: wrap 
+	flex-direction: row
+
+
+
 %input-style
 	padding: 11px 0px 10px 16px
-	margin-bottom: 16px
 	width: 100%
 	box-sizing: border-box
 	background: #FFFEFB
 	box-shadow: $secondary-shadow
 	border-radius: 4px
+	margin-bottom: 	6px
 	border: none
 	transition: $transition-speed
 	+font(Source Sans Pro,normal,normal,12px,15px)
@@ -40,30 +53,74 @@ $transition-speed: 0.2s
 		color: #B4B4B4	
 
 
-body
-	background: rgba(255, 254, 251, 0.8)
-h1  
-	font-size: 29px
+@mixin mediaSize($size) 
+	@if $size == xxl
+		@media (min-width: 1440px)
+			@content 
 
+	@else if $size == xl 
+		@media (max-width: 1440px)
+			@content  
 
+	@else if $size == lg 
+		@media (max-width: 1200px)
+			@content  
 
-
-
+	@else if $size == md 
+		@media (max-width: 768px)
+			@content
+			
+	@else if $size == sm 
+		@media (max-width: 576px)
+			@content
+	@else if $size == xs
+		@media (max-width: 375px)
+			@content
+	@else if $size == xxs
+		@media (max-width: 320px)
+			@content
 
 
 section.main
-	padding: 0 32px
-	// padding-left: calc(50% - 688px)
-	// padding-right: calc(50% - 688px)
+	@include mediaSize(xxl) 
+		padding-left: calc(50% - 700px)
+		padding-right: calc(50% - 700px)
+
+	@include mediaSize(xl) 
+		padding-left: calc(50% - 580px)
+		padding-right: calc(50% - 580px)
+
+	@include mediaSize(lg) 
+		padding-left: calc(50% - 360px)
+		padding-right: calc(50% - 360px)
+	
+	@include mediaSize(md) 
+		padding-left: calc(50% - 260px)
+		padding-right: calc(50% - 260px)
+
+	@include mediaSize(sm) 
+		padding: 0 15px
+	@include mediaSize(xxs) 
+		padding: 0px 0px
+	
+
+body
+	background: rgba(255, 254, 251, 0.8)
+h1  
+	+font(Source Sans Pro,normal,600,28px,35px)
+	color: #3F3F3F
+	@include mediaSize(md) 
+		margin-bottom: 	24px
+		text-align: center
 section.main header	
-	display: flex	
+	+flexSB()
 	margin-top: 8px
-	justify-content: space-between
 	align-items: center
 	margin-top: 29px
 	margin-bottom: 18px
-
-
+	@include mediaSize(md) 
+		flex-direction: column
+		align-items: center	
 
 #main__header__select
 	position: relative
@@ -73,7 +130,7 @@ section.main header
 	align-items: center
 	select  
 		border: none
-		padding: 13px 13px 11px 13px
+		padding: 10px 13px 11px 13px
 		height: 36px
 		box-shadow: $secondary-shadow
 		+font(Source Sans Pro,normal,normal,9px,15px)
@@ -83,7 +140,8 @@ section.main header
 		border-radius: 4px
 		cursor: pointer
 		option  
-			width: 200px
+			max-width: 200px
+			width: 	100%
 		&:focus
 			outline: none
 	&::after
@@ -95,43 +153,33 @@ section.main header
 		background: url('../images/arrD.png') no-repeat right center
 		background-size: contain
 		right: 14px
-		top: 17px
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		top: 14px
 
 .wrapper
-	display: flex 
-	justify-content: space-between
+	+flexSB()
+	align-items: flex-start
+	@include mediaSize(md) 
+		flex-direction: column
+		align-items: center	
+
 .add__prod
 	width: 100%
 	max-width: 288px
 	position: absolute
 	background: #FFFEFB
+	box-sizing: border-box
 	box-shadow: $primary-shadow
 	border-radius: 4px
-
 	padding: 24px
 	margin-right: 14px
-	label 
+	@include mediaSize(md) 
+		position: relative
+		margin-bottom: 	24px
+		margin-right: 	0
+	&__label 
 		display: block
-		margin-bottom: 2px
+		margin-bottom: 4px
+		margin-top: 16px
 		+font(Source Sans Pro,normal,normal,10px,13px)
 		color: #49485E
 		&::after  
@@ -141,13 +189,16 @@ section.main header
 		&.disabled
 			&::after  
 				content: none
-				
 	input
-		@extend %input-style	
+		@extend %input-style
+		&.error  
+			border: 1px solid #FF8484	
 	textarea
 		resize: none
 		height: 108px
 		padding-right: 16px
+		&.error  
+			border: 1px solid #FF8484
 		@extend %input-style
 		&::-webkit-scrollbar
 			height: 12px
@@ -155,11 +206,6 @@ section.main header
 		&::-webkit-scrollbar-thumb
 			background-color: #c4c4c4
 			border-radius: 5px
-
-	// &__name
-	// &__description
-	// &__image
-	// &__price
 	&__button
 		margin-top: 8px
 		background: #EEEEEE
@@ -170,22 +216,18 @@ section.main header
 		+font(Inter,normal,600,12px,15px)
 		color: #B4B4B4
 		cursor: pointer
-		transition: $transition-speed
-		&:hover	
-			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.01), 0px 8px 10px rgba(0, 0, 0, 0.02)
-			background-color: #DEDEDE
-			color: #A6A6A6
-		&:focus
-			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.01), 0px 8px 10px rgba(0, 0, 0, 0.02)
-			background-color: #D0D0D0
-
-
-
-
-
-
-
-
+		transition: $transition-speed	
+		&.active  
+			background: #7BAE73
+			color: #fff
+			&:hover	
+				background: #8FCA86
+			&:focus
+				background: #6F9D68
+p.errorText  
+	+font(Source Sans Pro,normal,normal,8px,10px,)
+	color: #FF8484
+	display: none	
 
 .card
 	background: #FFFEFB
@@ -196,24 +238,32 @@ section.main header
 	position: relative
 	transition: $transition-speed
 	cursor: pointer
+
 	&:hover
 		transform: scale(1.03)
 		box-shadow: $primary-shadow
-
-
+	&:hover .card__delete
+		display: block	
+		opacity: 1
 	&__group
 		display: flex
 		justify-content: flex-start
 		grid-gap: 14px
 		flex-wrap: wrap
 		margin-left: 347px
+		margin-bottom: 	24px
+		@include mediaSize(md) 
+				margin-left: 	0
+				justify-content: center	
 	&__image
 		width: 100%
 	&__delete
 		position: absolute
 		top: -10px
 		right: -11px
-		display: none
+		transition: $transition-speed
+		
+		opacity: 0
 		&.active
 			display: block
 	&__info
@@ -233,7 +283,5 @@ section.main header
 		+font(Source Sans Pro,normal,600,21px,30px)
 		color: $primary-color
 		margin-bottom: 24px
-
-
 
 
